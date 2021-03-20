@@ -79,14 +79,13 @@ Navigate to the new directory created by the previous command.
 
 Files and folders of the sample application in the directory
 
-![](github\ASP\media\image2.png){width="5.833333333333333in"
-height="0.6666666666666666in"}
+![](https://github.com/osygroup/Images/blob/main/ASP.NET-ElasticAPM/image2.png)
 
 Start the WebApp.
 
 *\$ dotnet run*
 
-![](github\ASP\media\image3.png){width="4.84375in" height="1.84375in"}
+![](https://github.com/osygroup/Images/blob/main/ASP.NET-ElasticAPM/image3.png)
 
 Open another SSH client, connect to the VM and confirm the creation of
 the single-page WebApp.
@@ -102,8 +101,7 @@ Install Nginx webserver.
 Confirm that Port 80 is opened in the Inbound port rules of the VM's
 Network Security Group. If it is not open, create a rule to open it.
 
-![](github\ASP\media\image4.png){width="6.171570428696413in"
-height="2.375in"}
+![](https://github.com/osygroup/Images/blob/main/ASP.NET-ElasticAPM/image4.png)
 
 Confirm the status of UFW.
 
@@ -139,14 +137,13 @@ Copy the below configuration into the file:
 
 *}*
 
-![](github\ASP\media\image5.png){width="6.15625in" height="3.34375in"}
+![](https://github.com/osygroup/Images/blob/main/ASP.NET-ElasticAPM/image5.png)
 
 Save the file and test if the configuration is okay.
 
 *\$ sudo nginx -t*
 
-![](github\ASP\media\image6.png){width="5.6875in"
-height="0.6666666666666666in"}
+![](https://github.com/osygroup/Images/blob/main/ASP.NET-ElasticAPM/image6.png)
 
 Restart Nginx.
 
@@ -159,15 +156,12 @@ Start the application.
 Open port 90 in the Inbound port rules of the Ubuntu VM's Network
 Security Group
 
-![C:\\Users\\osygroup\\Documents\\ASP.NET Core with
-ELK\\nsg.JPG](github\ASP\media\image7.jpeg){width="4.622589676290464in"
-height="3.3333333333333335in"}
+![](https://github.com/osygroup/Images/blob/main/ASP.NET-ElasticAPM/image7.jpeg)
 
 Visit the ASP.NET Core WebApp on a web browser with the virtual
 machine's Public IP address and port 90 i.e. *http://\<public_IP\>:90*
 
-![](github\ASP\media\image8.png){width="6.5in"
-height="2.5708333333333333in"}
+![](https://github.com/osygroup/Images/blob/main/ASP.NET-ElasticAPM/image8.png)
 
 ### Step 2 - Configure the application for Elasticsearch APM
 
@@ -181,14 +175,12 @@ Add *using Elastic.Apm.NetCoreAll;* and
 *app.UseAllElasticApm(Configuration);* in the file as seen in the
 screenshot:
 
-![](github\ASP\media\image9.png){width="6.5in"
-height="4.391666666666667in"}
+![](https://github.com/osygroup/Images/blob/main/ASP.NET-ElasticAPM/image9.png)
 
 Save the file. Also edit *appsettings.json* file and add some
 configurations as seen in the screenshot:
 
-![](github\ASP\media\image10.png){width="6.5in"
-height="3.3256944444444443in"}
+![](https://github.com/osygroup/Images/blob/main/ASP.NET-ElasticAPM/image10.png)
 
 Note: Watch out for where commas need to be added. Missing commas can
 cause errors when trying to run the app.
@@ -378,8 +370,7 @@ the internet.
 
 *\$ sudo nano /etc/nginx/sites-enabled/asp2.conf*
 
-![](github\ASP\media\image11.png){width="5.0625in"
-height="2.9270833333333335in"}
+![](https://github.com/osygroup/Images/blob/main/ASP.NET-ElasticAPM/image11.png)
 
 Open port 91 in the Inbound port rules of the VM's network security
 group and restart Nginx.
@@ -389,15 +380,13 @@ group and restart Nginx.
 Visit the KIbana on a web browser with the virtual machine's Public IP
 address and port 91 i.e. http://\<public_IP\>:91
 
-![](github\ASP\media\image12.png){width="6.5in"
-height="3.3979166666666667in"}
+![](https://github.com/osygroup/Images/blob/main/ASP.NET-ElasticAPM/image12.png)
 
 Click on the menu and scroll down to Observability. Click on APM.
 
 For now, there is no application to monitor:
 
-![](github\ASP\media\image13.png){width="6.5in"
-height="3.191666666666667in"}
+![](https://github.com/osygroup/Images/blob/main/ASP.NET-ElasticAPM/image13.png)
 
 To test if the Elastic APM was properly configured, run the WebApp (in
 the myWebApp directory).
@@ -409,15 +398,13 @@ address and port 90 i.e. http://\<public_IP\>:90, then click on the
 Refresh button on the Kibana page. The WebApp would show up on the APM
 page. The application performance data can be viewed here.
 
-![](github\ASP\media\image14.png){width="6.5in"
-height="2.932638888888889in"}
+![](https://github.com/osygroup/Images/blob/main/ASP.NET-ElasticAPM/image14.png)
 
 Activities on the WebAPp can now be monitored on Kibana. For example,
 clicks on the Home and Privacy links on the page will have Latency,
 Throughput, Transaction and other records:
 
-![](github\ASP\media\image15.png){width="6.5in"
-height="3.451388888888889in"}
+![](https://github.com/osygroup/Images/blob/main/ASP.NET-ElasticAPM/image15.png)
 
 Stop the running WebApp with ctrl + c.
 
@@ -425,15 +412,13 @@ To view the Docker images of the Elastic APM setup created:
 
 *\$ sudo docker images*
 
-![](github\ASP\media\image16.png){width="6.5in"
-height="0.9902777777777778in"}
+![](https://github.com/osygroup/Images/blob/main/ASP.NET-ElasticAPM/image16.png)
 
 View the Docker containers created for the Elastic APM.
 
 *\$ sudo docker ps -a*
 
-![](github\ASP\media\image17.png){width="6.5in"
-height="0.9888888888888889in"}
+![](https://github.com/osygroup/Images/blob/main/ASP.NET-ElasticAPM/image17.png)
 
 ctrl+c will stop all the Elastic APM containers running. The Kibana
 webpage will no longer be available.
@@ -447,8 +432,7 @@ Start the Elasticserach container first, followed by Kibana container,
 then APM-server container. Kibana and APM-server require that
 Elasticsearch is running first:
 
-![](github\ASP\media\image18.png){width="5.489583333333333in"
-height="1.1666666666666667in"}
+![](https://github.com/osygroup/Images/blob/main/ASP.NET-ElasticAPM/image18.png)
 
 To ensure that these three containers (and also the WebApp container)
 will run anytime on booting up the VM, update each container with a
@@ -457,8 +441,7 @@ restart policy while the containers are running:
 *\$ sudo* *docker update \--restart unless-stopped
 \<container_name_or_ID\>*
 
-![](github\ASP\media\image19.png){width="6.5in"
-height="1.0006944444444446in"}
+![](https://github.com/osygroup/Images/blob/main/ASP.NET-ElasticAPM/image19.png)
 
 ### Conclusion
 
