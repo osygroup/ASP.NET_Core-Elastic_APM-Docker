@@ -71,9 +71,7 @@ Create a sample ASP.NET Core Web App (Model-View-Controller)
 
 *\$ dotnet new mvc -o myWebApp \--no-https*
 
-![C:\\Users\\osygroup\\Documents\\ASP.NET Core with
-ELK\\mvc4.JPG](github\ASP\media\image1.jpeg){width="5.989583333333333in"
-height="1.6139599737532808in"}
+![](https://github.com/osygroup/Images/blob/main/ASP.NET-ElasticAPM/image1.jpeg)
 
 Navigate to the new directory created by the previous command.
 
