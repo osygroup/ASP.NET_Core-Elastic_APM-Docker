@@ -1,6 +1,6 @@
 # ASP.NET Core Web Application + Elastic APM in Docker
 
-Docker is a set of platform as a service (PaaS) products that use
+Docker is a set of Platform as a Service (PaaS) products that use
 OS-level virtualization to deliver software in packages called
 containers. Containers are isolated from one another and bundle their
 own software, libraries and configuration files; they can communicate
