@@ -115,27 +115,7 @@ Create a virtual host (reverse proxy) config file with a text editor.
 
 *\$ sudo nano /etc/nginx/sites-enabled/asp.conf*
 
-Copy the below configuration into the file:
-
-*server {*
-
-*listen 90;*
-
-*location / {*
-
-*proxy_pass http://localhost:5000;*
-
-*proxy_set_header Upgrade \$http_upgrade;*
-
-*proxy_set_header Connection \'upgrade\';*
-
-*proxy_set_header Host \$host;*
-
-*proxy_cache_bypass \$http_upgrade;*
-
-*}*
-
-*}*
+Copy the configuration in files/asp.conf in the repository into the file:
 
 ![](https://github.com/osygroup/Images/blob/main/ASP.NET-ElasticAPM/image5.png)
 
@@ -208,152 +188,7 @@ Create a docker-compose.yml file with a text editor:
 
 *\$ sudo nano docker-compose.yml*
 
-Copy and paste in the following:
-
-*version: \'2.2\'*
-
-*services:*
-
-*apm-server:*
-
-*image: docker.elastic.co/apm/apm-server:7.11.1*
-
-*depends_on:*
-
-*elasticsearch:*
-
-*condition: service_healthy*
-
-*kibana:*
-
-*condition: service_healthy*
-
-*cap_add: \[\"CHOWN\", \"DAC_OVERRIDE\", \"SETGID\", \"SETUID\"\]*
-
-*cap_drop: \[\"ALL\"\]*
-
-*ports:*
-
-*- 8200:8200*
-
-*networks:*
-
-*- elastic*
-
-*command: \>*
-
-*apm-server -e*
-
-*-E apm-server.rum.enabled=true*
-
-*-E setup.kibana.host=kibana:5601*
-
-*-E setup.template.settings.index.number_of_replicas=0*
-
-*-E apm-server.kibana.enabled=true*
-
-*-E apm-server.kibana.host=kibana:5601*
-
-*-E output.elasticsearch.hosts=\[\"elasticsearch:9200\"\]*
-
-*healthcheck:*
-
-*interval: 10s*
-
-*retries: 12*
-
-*test: curl \--write-out \'HTTP %{http_code}\' \--fail \--silent
-\--output /dev/null http://localhost:8200/*
-
-*elasticsearch:*
-
-*image: docker.elastic.co/elasticsearch/elasticsearch:7.11.1*
-
-*environment:*
-
-*- bootstrap.memory_lock=true*
-
-*- cluster.name=docker-cluster*
-
-*- cluster.routing.allocation.disk.threshold_enabled=false*
-
-*- discovery.type=single-node*
-
-*- ES_JAVA_OPTS=-XX:UseAVX=2 -Xms1g -Xmx1g*
-
-*ulimits:*
-
-*memlock:*
-
-*hard: -1*
-
-*soft: -1*
-
-*volumes:*
-
-*- esdata:/usr/share/elasticsearch/data*
-
-*ports:*
-
-*- 9200:9200*
-
-*networks:*
-
-*- elastic*
-
-*healthcheck:*
-
-*interval: 20s*
-
-*retries: 10*
-
-*test: curl -s http://localhost:9200/\_cluster/health \| grep -vq
-\'\"status\":\"red\"\'*
-
-*kibana:*
-
-*image: docker.elastic.co/kibana/kibana:7.11.1*
-
-*depends_on:*
-
-*elasticsearch:*
-
-*condition: service_healthy*
-
-*environment:*
-
-*ELASTICSEARCH_URL: http://elasticsearch:9200*
-
-*ELASTICSEARCH_HOSTS: http://elasticsearch:9200*
-
-*ports:*
-
-*- 5601:5601*
-
-*networks:*
-
-*- elastic*
-
-*healthcheck:*
-
-*interval: 10s*
-
-*retries: 20*
-
-*test: curl \--write-out \'HTTP %{http_code}\' \--fail \--silent
-\--output /dev/null http://localhost:5601/api/status*
-
-*volumes:*
-
-*esdata:*
-
-*driver: local*
-
-*networks:*
-
-*elastic:*
-
-*driver: bridge*
+Copy the configuration in files/docker-compose.yml in the repository into the file.
 
 Run *docker-compose up*. Compose will download the official docker
 containers and start Elasticsearch, Kibana, and APM Server.
@@ -369,6 +204,8 @@ Create a virtual host for localhost:5601 so that it can be visible over
 the internet.
 
 *\$ sudo nano /etc/nginx/sites-enabled/asp2.conf*
+
+Copy the configuration in files/asp2.conf in the repository into the file:
 
 ![](https://github.com/osygroup/Images/blob/main/ASP.NET-ElasticAPM/image11.png)
 
