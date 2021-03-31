@@ -22,7 +22,7 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Publish to folder
-      run: msbuild /nologo /verbosity:m /t:Build /t:pipelinePreDeployCopyAllFilesToOneFolder /p:_PackageTempDir="\published\"
+      run: dotnet publish -c Release -o \published\
 
     - name: Run Azure webapp deploy action using publish profile credentials
       uses: azure/webapps-deploy@v2
